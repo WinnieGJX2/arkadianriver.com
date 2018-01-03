@@ -4,20 +4,20 @@ layout: default
   <section class="wrapper{% if page.options contains 'minihead' %} minihead{% endif %} style5">
     <div class="inner{% if page.options contains 'fullwidth' %} fullwidth{% endif %}">{%
       unless site.navlinks == 'none'
-%}{%    if page.categories contains 'works'
-%}{%      assign idxperma = '/works/' | prepend: site.baseurl
-%}{%      assign idxtitle = 'Works Index'
+%}{%    if page.categories contains '信息可视化作品集'
+%}{%      assign idxperma = '/信息可视化作品集/' | prepend: site.baseurl
+%}{%      assign idxtitle = '信息可视化作品集 Index'
 %}{%      assign idxbutton = 'Index'
-%}{%      include fn_groupsort_reverse.html unsorted=site.categories.works groupby='priority' sortby='date'
+%}{%      include fn_groupsort_reverse.html unsorted=site.categories.信息可视化作品集 groupby='priority' sortby='date'
 %}{%    endif
-%}{%    if page.categories.first == 'topics' and page.categories.last != 'topics'
+%}{%    if page.categories.first == '作品集（web）' and page.categories.last != '作品集（web）'
 %}{%      assign idxperma = page.categories | join: '/' | prepend: '/' | prepend: site.baseurl | append: '/'
 %}{%      assign idxtitle = 'Start page'
 %}{%      assign idxbutton = 'Start'
 %}{%      assign sorted_list = site.empty_array
-%}{%      for topic in site.categories.topics
-%}{%        if topic.categories.last == page.categories.last
-%}{%          assign sorted_list = sorted_list | push: topic
+%}{%      for 作品集（web） in site.categories.作品集（web）
+%}{%        if 作品集（web）.categories.last == page.categories.last
+%}{%          assign sorted_list = sorted_list | push: 作品集（web）
 %}{%        endif
 %}{%      endfor
 %}{%      assign sorted_list = sorted_list | sort: 'date'
@@ -32,9 +32,9 @@ layout: default
       <span id="post-date">{{ page.date  | date: "%-d %B %Y" }}</span><hr
         style="margin-top:3px;" />{%
       endunless
-%}{%  if page.categories contains 'works' and page.tags %}
+%}{%  if page.categories contains '信息可视化作品集' and page.tags %}
       <h4>Skills</h4>
-  {%    assign work = page
+  {%    assign 信息可视化作品集 = page
 %}{%    include techlist.html %}
   {%  endif
 %}
@@ -45,7 +45,7 @@ layout: default
       if sorted_list
 %}{%    if site.navlinks == 'bottom' or site.navlinks == 'both'
 %}{%      unless perma
-%}{%        assign perma = '/topics/' | prepend: site.baseurl
+%}{%        assign perma = '/作品集（web）/' | prepend: site.baseurl
 %}{%      endunless
 %}{%      include fn_sortednav.html posclass='btnbottom'
 %}{%    endif
@@ -54,7 +54,7 @@ layout: default
 %}{%    include author-block.html %}
   {%  endunless
 %}{%  if jekyll.environment == "production"
-%}{%    unless page.options contains nocomment or page.categories contains 'works'
+%}{%    unless page.options contains nocomment or page.categories contains '信息可视化作品集'
 %}{%      include disqus.html %}
   {%    endunless
 %}{%  endif
